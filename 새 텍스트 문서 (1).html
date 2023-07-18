@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메뉴 추천 사이트</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .menu-container {
+      display: flex;
+      justify-content: space-around;
+      margin: 30px 0;
+    }
+
+    .category {
+      text-align: center;
+    }
+
+    .menu-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .menu-list li {
+      margin-bottom: 10px;
+    }
+
+    .result {
+      text-align: center;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>메뉴 추천 사이트</h1>
+
+  <div class="menu-container">
+    <div class="category">
+      <h2>아침</h2>
+    
+      <button onclick="recommendMenu('아침')">추천</button>
+    </div>
+
+    <div class="category">
+      <h2>점심</h2>
+      
+      </ul>
+      <button onclick="recommendMenu('점심')">추천</button>
+    </div>
+
+    <div class="category">
+      <h2>저녁</h2>
+     
+      </ul>
+      <button onclick="recommendMenu('저녁')">추천</button>
+    </div>
+  </div>
+
+  <div class="result">
+    <h3>추천 메뉴:  <span
+  id="recommendedMenu"></span></h3>
+  </div>
+
+  <script>
+    function recommendMenu(category) {
+      var menuList;
+      var randomIndex;
+      var recommendedMenuElement = document.getElementById('recommendedMenu');
+
+      switch (category) {
+        case '아침':
+          menuList = ['토스트', '시리얼', '요거트','닭가슴살','황태해장국','계란찜','사과','구운감자','양배추찜','간장계란밥','소시지야체볶음','스팸구이','유부초밥','콩나물국'];
+          break;
+        case '점심':
+          menuList = ['샌드위치', '스프', '샐러드','햄버거','가츠동','돈까스','간장게장','마라탕','짜장면','짬뽕','찐만두','핫도그','피자','고로케','데리야끼치킨','치킨','떡볶이','낙곱새','김밥','우동','초밥','그릴 소시지','김치볶음밥','군만두','멸치국수','깐풍치킨','난자완스','돌솥비빔밥','덴뿌라','라멘','라면','너비아니구이','쌈밥','꼬막비빔밥','곤드레나물밥','오믈렛','연어덮밥','제육볶음','낙지볶음','연어롤','참치회','참치구이','삼계탕','쌀국수','비빔국수','수제비국','훠궈','닭강정','컵밥'];
+          break;
+        case '저녁':
+          menuList = ['스테이크', '생선 요리', '스파게티','감자탕','대구탕','순대국','내장탕','곱창','대창','곱창전골','산낙지','닭곰탕','닭꼬치','양꼬치','녹두전','닭볶음탕','찜닭','대패삼겹살','통삼겹살','항정살','카레라이스','대하구이','LA갈비','동파육','육회','돼지주물럭','두부전골','곱창전골','김치찌개','된장찌개','순두부찌개','야채죽','족발','보쌈','낙지전골','갈치구이','고등어구이','안심구이','부채살구이'];
+          break;
+        default:
+          menuList = [];
+          break;
+      }
+
+      if (menuList.length > 0) {
+        randomIndex = Math.floor(Math.random() * menuList.length);
+        recommendedMenuElement.textContent = menuList[randomIndex];
+      } else {
+        recommendedMenuElement.textContent = '메뉴가 없습니다.';
+      }
+    }
+  </script>
+</body>
+</html>
